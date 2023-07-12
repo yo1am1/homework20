@@ -55,15 +55,6 @@ def test_connection_to_books_list():
     assert response.status_code == 200
 
 
-# def test_get_books_list(mocked):
-#     mocked_data = mocked("get_books.json")
-#     body = requests.get(
-#         "https://boiling-dusk-49835-df388a71925c.herokuapp.com/api/books/"
-#     ).json()
-#
-#     assert body == mocked_data
-
-
 def test_get_book_exists(mocked):
     mocked_data = mocked("get_book.json")
     body = requests.get(
@@ -192,18 +183,28 @@ def test_book_filter_author(mocked):
     )
     response_body = response.json()
 
-    expected_response = [{'fields': {'author': '(<Author: Me>, False)',
-                                     'genre': 'tragedy',
-                                     'publish_year': 20235,
-                                     'title': 'Foo 2'},
-                          'model': 'shelf.book',
-                          'pk': 5},
-                         {'fields': {'author': 'Me',
-                                     'genre': 'comedy? tragedy...',
-                                     'publish_year': 2023,
-                                     'title': 'Foo'},
-                          'model': 'shelf.book',
-                          'pk': 1}]
+    expected_response = [
+        {
+            "fields": {
+                "author": "(<Author: Me>, False)",
+                "genre": "tragedy",
+                "publish_year": 20235,
+                "title": "Foo 2",
+            },
+            "model": "shelf.book",
+            "pk": 5,
+        },
+        {
+            "fields": {
+                "author": "Me",
+                "genre": "comedy? tragedy...",
+                "publish_year": 2023,
+                "title": "Foo",
+            },
+            "model": "shelf.book",
+            "pk": 1,
+        },
+    ]
 
     assert response_body == expected_response
 
@@ -254,18 +255,28 @@ def test_book_filter_title(mocked):
     )
     response_body = response.json()
 
-    expected_response = [{'fields': {'author': '(<Author: Me>, False)',
-                                     'genre': 'tragedy',
-                                     'publish_year': 20235,
-                                     'title': 'Foo 2'},
-                          'model': 'shelf.book',
-                          'pk': 5},
-                         {'fields': {'author': 'Me',
-                                     'genre': 'comedy? tragedy...',
-                                     'publish_year': 2023,
-                                     'title': 'Foo'},
-                          'model': 'shelf.book',
-                          'pk': 1}]
+    expected_response = [
+        {
+            "fields": {
+                "author": "(<Author: Me>, False)",
+                "genre": "tragedy",
+                "publish_year": 20235,
+                "title": "Foo 2",
+            },
+            "model": "shelf.book",
+            "pk": 5,
+        },
+        {
+            "fields": {
+                "author": "Me",
+                "genre": "comedy? tragedy...",
+                "publish_year": 2023,
+                "title": "Foo",
+            },
+            "model": "shelf.book",
+            "pk": 1,
+        },
+    ]
 
     assert response_body == expected_response
 
@@ -280,24 +291,38 @@ def test_book_filter_publish_year(mocked):
     )
     response_body = response.json()
 
-    expected_response = [{'fields': {'author': '(<Author: Dante Alighieri>, True)',
-                                     'genre': 'comedy',
-                                     'publish_year': 20235,
-                                     'title': 'Not a Divine comedy'},
-                          'model': 'shelf.book',
-                          'pk': 2},
-                         {'fields': {'author': '(<Author: Me>, False)',
-                                     'genre': 'tragedy',
-                                     'publish_year': 20235,
-                                     'title': 'Foo 2'},
-                          'model': 'shelf.book',
-                          'pk': 5},
-                         {'fields': {'author': 'Me',
-                                     'genre': 'comedy? tragedy...',
-                                     'publish_year': 2023,
-                                     'title': 'Foo'},
-                          'model': 'shelf.book',
-                          'pk': 1}]
+    expected_response = [
+        {
+            "fields": {
+                "author": "(<Author: Dante Alighieri>, True)",
+                "genre": "comedy",
+                "publish_year": 20235,
+                "title": "Not a Divine comedy",
+            },
+            "model": "shelf.book",
+            "pk": 2,
+        },
+        {
+            "fields": {
+                "author": "(<Author: Me>, False)",
+                "genre": "tragedy",
+                "publish_year": 20235,
+                "title": "Foo 2",
+            },
+            "model": "shelf.book",
+            "pk": 5,
+        },
+        {
+            "fields": {
+                "author": "Me",
+                "genre": "comedy? tragedy...",
+                "publish_year": 2023,
+                "title": "Foo",
+            },
+            "model": "shelf.book",
+            "pk": 1,
+        },
+    ]
 
     assert response_body == expected_response
 
@@ -312,18 +337,28 @@ def test_book_filter_all(mocked):
     )
     response_body = response.json()
 
-    expected_response = [{'fields': {'author': '(<Author: Me>, False)',
-                                     'genre': 'tragedy',
-                                     'publish_year': 20235,
-                                     'title': 'Foo 2'},
-                          'model': 'shelf.book',
-                          'pk': 5},
-                         {'fields': {'author': 'Me',
-                                     'genre': 'comedy? tragedy...',
-                                     'publish_year': 2023,
-                                     'title': 'Foo'},
-                          'model': 'shelf.book',
-                          'pk': 1}]
+    expected_response = [
+        {
+            "fields": {
+                "author": "(<Author: Me>, False)",
+                "genre": "tragedy",
+                "publish_year": 20235,
+                "title": "Foo 2",
+            },
+            "model": "shelf.book",
+            "pk": 5,
+        },
+        {
+            "fields": {
+                "author": "Me",
+                "genre": "comedy? tragedy...",
+                "publish_year": 2023,
+                "title": "Foo",
+            },
+            "model": "shelf.book",
+            "pk": 1,
+        },
+    ]
 
     assert response_body == expected_response
 
@@ -395,8 +430,8 @@ def test_book_put_method(mocked):
 
     expected_response = {
         "book": '[{    "model": "shelf.book",    "pk": 1,    "fields": {        '
-                '"title": "Foo",        "publish_year": 2023,        "author": '
-                '"try",        "genre": "comedy? tragedy..."    }}]',
+        '"title": "Foo",        "publish_year": 2023,        "author": '
+        '"try",        "genre": "comedy? tragedy..."    }}]',
         "message": "Book 'Foo' has been updated",
         "status": 200,
         "updated_fields": ["author"],
