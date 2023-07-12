@@ -223,16 +223,6 @@ def test_book_filter_genre(mocked):
     expected_response = [
         {
             "fields": {
-                "author": "Me",
-                "genre": "comedy? tragedy...",
-                "publish_year": 2023,
-                "title": "Foo",
-            },
-            "model": "shelf.book",
-            "pk": 1,
-        },
-        {
-            "fields": {
                 "author": "(<Author: Dante Alighieri>, True)",
                 "genre": "comedy",
                 "publish_year": 20235,
@@ -240,6 +230,16 @@ def test_book_filter_genre(mocked):
             },
             "model": "shelf.book",
             "pk": 2,
+        },
+        {
+            "fields": {
+                "author": "Me",
+                "genre": "comedy? tragedy...",
+                "publish_year": 2023,
+                "title": "Foo",
+            },
+            "model": "shelf.book",
+            "pk": 1,
         },
     ]
 
@@ -305,16 +305,6 @@ def test_book_filter_publish_year(mocked):
         },
         {
             "fields": {
-                "author": "Me",
-                "genre": "comedy? tragedy...",
-                "publish_year": 2023,
-                "title": "Foo",
-            },
-            "model": "shelf.book",
-            "pk": 1,
-        },
-        {
-            "fields": {
                 "author": "(<Author: Dante Alighieri>, True)",
                 "genre": "comedy",
                 "publish_year": 20235,
@@ -322,6 +312,16 @@ def test_book_filter_publish_year(mocked):
             },
             "model": "shelf.book",
             "pk": 2,
+        },
+        {
+            "fields": {
+                "author": "Me",
+                "genre": "comedy? tragedy...",
+                "publish_year": 2023,
+                "title": "Foo",
+            },
+            "model": "shelf.book",
+            "pk": 1,
         },
     ]
 
