@@ -110,12 +110,6 @@ class BookView(View):
                 indent=4,
             ).replace("\n", " ")
             return HttpResponse(books_data, content_type="application/json")
-        #
-        # books = Book.objects.all()
-        # books_data = serialize(
-        #     "json", books, fields=("title", "publish_year", "author", "genre"), indent=4
-        # ).replace("\n", " ")
-        # return HttpResponse(books_data, content_type="application/json")
 
     def post(self, request):
         try:
