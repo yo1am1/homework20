@@ -1,5 +1,6 @@
 import json
 import pathlib
+
 import responses
 
 import pytest
@@ -222,16 +223,6 @@ def test_book_filter_genre(mocked):
     expected_response = [
         {
             "fields": {
-                "author": "(<Author: Dante Alighieri>, True)",
-                "genre": "comedy",
-                "publish_year": 20235,
-                "title": "Not a Divine comedy",
-            },
-            "model": "shelf.book",
-            "pk": 2,
-        },
-        {
-            "fields": {
                 "author": "Me",
                 "genre": "comedy? tragedy...",
                 "publish_year": 2023,
@@ -239,6 +230,16 @@ def test_book_filter_genre(mocked):
             },
             "model": "shelf.book",
             "pk": 1,
+        },
+        {
+            "fields": {
+                "author": "(<Author: Dante Alighieri>, True)",
+                "genre": "comedy",
+                "publish_year": 20235,
+                "title": "Divine",
+            },
+            "model": "shelf.book",
+            "pk": 2,
         },
     ]
 
@@ -294,16 +295,6 @@ def test_book_filter_publish_year(mocked):
     expected_response = [
         {
             "fields": {
-                "author": "(<Author: Dante Alighieri>, True)",
-                "genre": "comedy",
-                "publish_year": 20235,
-                "title": "Not a Divine comedy",
-            },
-            "model": "shelf.book",
-            "pk": 2,
-        },
-        {
-            "fields": {
                 "author": "(<Author: Me>, False)",
                 "genre": "tragedy",
                 "publish_year": 20235,
@@ -321,6 +312,16 @@ def test_book_filter_publish_year(mocked):
             },
             "model": "shelf.book",
             "pk": 1,
+        },
+        {
+            "fields": {
+                "author": "(<Author: Dante Alighieri>, True)",
+                "genre": "comedy",
+                "publish_year": 20235,
+                "title": "Divine",
+            },
+            "model": "shelf.book",
+            "pk": 2,
         },
     ]
 
