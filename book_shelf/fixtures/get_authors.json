@@ -1,0 +1,37 @@
+[
+  {
+    "fields": {
+      "name": "Me"
+    },
+    "model": "shelf.author",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "name": "Dante Alighieri"
+    },
+    "model": "shelf.author",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "name": "Dante Alighieri Jr"
+    },
+    "model": "shelf.author",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "name": "test_put"
+    },
+    "model": "shelf.author",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "name": "try"
+    },
+    "model": "shelf.author",
+    "pk": 5
+  }
+]
